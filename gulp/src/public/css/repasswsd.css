@@ -1,0 +1,109 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+#bgimg{
+    width: 1349px;
+    height: 662px;
+    background-image: url("../images/bgimg.jpg");
+    background-size: 100% 100%;
+}
+#bgimg img{
+    margin-top:40px;
+    margin-left: 100px;
+}
+#repasswrd{
+    width: 850px;
+    height: 505px;
+    border-radius: 8px;
+    background-color: white;
+    margin-right: 100px;
+    text-align: center;
+    position: relative;
+}
+#repasswrd h1{
+    padding-top: 70px;
+    font-size: 17px;
+    font-weight: normal;
+}
+#repasswrd p{
+    font-size: 13px;
+    color: #151515;
+    position: absolute;
+    top: 393px;
+    left: 330px;
+}
+#repasswrd p:first-of-type a:link{
+    color: #151515;
+}
+#repasswrd p:first-of-type a:visited{
+    color: #151515;
+}
+#repasswrd p:first-of-type a:hover{
+    color: #eda900;
+}
+#repasswrd p:first-of-type a:active{
+    color: #151515;
+}
+#repasswrd input{
+    width: 360px;
+    height: 40px;
+    outline: none;
+    padding-left: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #dcdcdc;
+    position: absolute;
+    left: 240px;
+    top: 145px;
+}
+#repasswrd input:nth-of-type(1){
+    width: 265px;
+}
+#repasswrd input:nth-of-type(2){
+    left: 522px;
+}
+#repasswrd input:nth-of-type(2),#repasswrd input:nth-of-type(6){
+    width: 85px;
+    height: 40px;
+    background-color: #eda900;
+    border: none;
+    color: #151515;
+    outline: none;
+}
+#repasswrd input:nth-of-type(3){
+    top: 205px;
+}
+#repasswrd input:nth-of-type(4){
+    top: 265px;
+}
+#repasswrd input:nth-of-type(5){
+    top: 325px;
+    left: 235px;
+}
+#repasswrd input:nth-of-type(2):hover,#repasswrd input:nth-of-type(6):hover{
+    color: white;
+    cursor: pointer;
+}
+#repasswrd input:nth-of-type(5){
+    left: 240px;
+}
+#repasswrd input:nth-of-type(6){
+    top: 435px;
+    left: 380px;
+}
+#repasswrd input:nth-of-type(7){
+    width: 14px;
+    height: 14px;
+    top: 395px;
+    left: 311px;
+    opacity: 0.5;
+}
+#chBox{
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    left: 310px;
+    top: 394px;
+    border: 1px solid #151515;
+}

@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS 路由实例 - 菜鸟教程</title>
+</head>
+<!--
+<base href="/"/>
+-->
+<body ng-app='routingDemoApp'>
+<h2>AngularJS 路由应用</h2>
+<ul>
+    <li><a href="#/">首页</a></li>
+    <li><a href="#/run">电脑</a></li>
+    <li><a href="#/printers">打印机</a></li>
+    <li><a href="#/blabla">其他</a></li>
+</ul>
+
+<div ng-view></div>
+<script src="js/libs/angular/angular.min.js"></script>
+<script src="js/libs/angular-route/angular-route.js"></script>
+<script>
+    angular.module('routingDemoApp',['ngRoute'])
+            .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider){
+                $locationProvider.hashPrefix('');//去除版本引入的angular版本需要在'/'加上'!'
+                $routeProvider
+                        .when('/',{template:'这是首页页面'})
+                        .when('/computers',{template:'这是电脑分类页面'})
+                        .when('/printers',{template:'这是打印机页面'})
+                        .otherwise({redirectTo:'/'});
+            }]);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.content{
+    width: 1349px;
+    height: 740px;
+    margin-top: 100px;
+}
+.content1{
+    float: left;
+    /*margin-top: 150px;*/
+}
+.content1 div{
+    width:150px;
+    text-align: center;
+    margin: 25px 50px 25px 50px;
+}
+.content1 div img{
+    width: 100px;
+    height: 70px;
+}
+.content2{
+    width: 50px;
+    height: 500px;
+    float: left;
+    margin-left: 50px;
+    margin-top: -50px;
+    position: relative;
+}
+.content2 div div{
+    text-align: center;
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: #808080;
+    border-radius: 50%;
+    font-size: 25px;
+    margin: 75px 50px 25px 0;
+}
+.content2>div:first-child{
+    position: absolute;
+    top: 0;
+    left: 25px;
+    height: 550px;
+    width: 2px;
+    background-color: #808080;
+}
+.content3{
+    float: left;
+    width: 900px;
+    height: 270px;
+    line-height: 25px;
+    margin-left: 50px;
+}
+.content3-1>p:nth-child(1){
+    font-size: 20px;
+}
+.content3-1 p span{
+    font-size: 22px;
+    color: #ff6e47;
+}
+.content3-1>p:nth-child(2){
+    font-size: 12px;
+}
+.content3-2>p:nth-child(1){
+    font-size: 28px;
+    margin: 10px 0 10px 0;
+    font-weight: 600;
+}
+.content3-2 button{
+    width: 150px;
+    height: 50px;
+    background-color: orangered;
+    color: #ffffff;
+    font-size: 25px;
+    border: none;
+    margin-top: 20px;
+}
+.content4{
+    float: left;
+    margin-left: 50px;
+    width: 800px;
+    height: 350px;
+
+}
+.content4 img{
+    width: 100%;
+    height: 100%;
+}

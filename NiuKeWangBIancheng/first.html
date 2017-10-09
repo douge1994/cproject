@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+/*解决父元素无法被撑开方法之一
+   .box:after{
+        display: block;
+        clear: both;
+        height: 0;
+        content: '';
+    }*/
+/*
+//解决父元素无法被撑开方法之二
+*/
+    .box {
+        overflow: auto;
+        zoom: 1;
+    }
+    .box div{
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        float: left;
+        margin-left: 50px;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+</body>
+<script>
+//    移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回
+    function removeWithoutCopy_first(arr, item) {
+        for(i=arr.length-1;i>=0;i--)
+        {
+            if(arr[i]==item)
+            {
+                arr.splice(i,1);
+            }
+        }
+        return arr;
+    }
+    function removeWithoutCopy_second(arr, item) {
+        for(var i = 0;i<arr.length;i++)
+        {
+            if(arr[i]==item)
+            {
+                arr.splice(i,1);
+                i--;
+            }
+        }
+        return arr;
+    }
+/*(function append(arr, item) {
+    arr = [1,2,3]
+    item = 10
+    var arr1 =[];
+    arr1 = arr;
+    arr1.push(item);
+    console.log(arr)
+    console.log(arr1)
+    return arr1;
+})()*/
+
+function duplicates() {
+   var  arr  = [1,2,2,3,4,3,4,5];
+    var x =[];
+    console.log(arr.indexOf(arr[3]))
+    for(var i =0;i<arr.length;i++){
+        if(arr.indexOf(arr[i]) != i && arr.indexOf(arr[i]) != -1){
+            x.push(arr[i]);
+        }
+    }
+    console.log(x)
+    return x;
+}
+    duplicates();
+
+function square(arr) {
+    //var arr1 = arr.slice(0)
+   var  newArr = arr.map(function(item){
+        if(typeof item == "number"){//判断是否为数字
+            return item*item;
+        }
+    });
+    console.log(newArr);
+    return newArr;
+}
+    square([1,2,3]);
+
+function containsNumber(str) {
+    var arr = str.split('');
+    var x;
+    console.log(Number(arr[1]))
+    for(var i = 0;i<arr.length;i++){
+        if(Number(arr[i]) == Number){
+            x = true;
+        }else {
+            x = false;
+        }
+    }
+    return console.log(x);
+}
+    containsNumber('123abc');
+
+function getUrlParam(){
+    var url = 'http://www.nowcoder.com?key=1&key2=2&key3=3&test=4#hehe';
+    var a = url.slice(url.indexOf('?')+1);
+    var b = a.split('&');
+    console.log(b);
+    var c = {};
+    var x ;
+    for(var i =0;i< b.length;i++){
+      x = b[i].split("=");
+        console.log(x);
+        if(!(x[0] in c)){
+            c[x[0]] = x[1];
+        }
+    }
+    console.log(c);
+}
+    getUrlParam()
+</script>
+</html>

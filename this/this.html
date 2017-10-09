@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .one {
+        width: 500px;
+        height: 500px;
+        border: 1px solid blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .one div{
+        width: 250px;
+        height: 250px;
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="one">
+        <div></div>
+    </div>
+</body>
+<script>
+    var a = {
+        b: {
+            m: function() {
+                console.log(this.p);
+            },
+            p: 'Hello'
+        }
+    };
+
+    var hello = a.b.m;
+    a.b.m() //hello
+    hello() // undefined
+
+/*  var x = 123;
+    function ad(){
+        console.log(this.x)
+    }
+    ad()//123
+*/
+    function ad(){
+        var x = 123;
+        (function test(){
+            console.log(this.x)
+        })();
+    }
+   ad();//undefined
+
+/*  var x = 123;
+    function ad(){
+        (function test(){
+            console.log(this.x)
+        })();
+    }
+    ad();//123
+ */
+    var x1 = 1;
+    function test(){
+        this.x1 = 0;
+    }
+    test();
+    console.log(x1)
+</script>
+</html>

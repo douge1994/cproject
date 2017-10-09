@@ -1,0 +1,27 @@
+.box {
+    width: 1920px;
+    height: auto;
+}
+
+.one {
+    text-align: center;
+    border: 1px solid red;
+}
+@media (max-width:1200px) {
+
+}
+@media (max-width:992px) {
+
+}
+@media (max-width:768px) {
+
+}
+
+.weilei::after {
+    content: 'yoxi';
+    width: 20px;
+    line-height: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid red;
+}

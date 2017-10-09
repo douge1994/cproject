@@ -1,0 +1,106 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "微软雅黑";
+}
+.container{
+    position: relative;
+    width: 1349px;
+    height:700px;
+    background-image: url("../images/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.shuoming{
+    position: absolute;
+    background-color: #f4f4f4;
+    width: 850px;
+    height: 500px;
+    text-align: center;
+right: 100px;
+    top:100px;
+
+    border-radius: 5px;
+}
+.logo{
+    position: absolute;
+    left: 130px;
+}
+.xieyi{
+    border: solid 10px #ffe100;
+    width: 330px;
+    position: absolute;
+    left: 48px;
+    top:47px;
+
+    height: 400px;
+}
+.xieyi>p:first-child{
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 30px;width: 130px;
+    height: 36px;
+border-bottom: solid 1px #151515
+}
+.xieyi>p:nth-child(2){
+      margin: 0 auto;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 36px;width: 255px;
+      height: 40px;
+      border-bottom: solid 1px #151515
+  }
+.xieyi>p:nth-child(3){
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 30px;width: 180px;
+    height: 36px;
+    border-bottom: solid 1px #151515
+}
+.xieyi>img{
+width: 140px;
+    height: 109px;
+  margin-top: 40px;
+}
+.tiaokuan{
+    border: solid 0px #ffe100;
+    width: 330px;
+    position: absolute;
+   right: 48px;
+    top:47px;
+text-align: left;
+    height: 410px;
+}
+.tiaokuan>p:first-child{
+    text-indent: 12px;
+    margin-top: 15px;
+}
+.tiaokuan>p:nth-child(2){
+    font-size: 14px;
+    font-weight: bolder;
+}
+.tiaokuan>p{
+    /*text-indent: 2px;*/
+    line-height: 21px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.shuoming>div:nth-of-type(3){
+    position: absolute;right: 48px;
+    bottom:10px;
+    width: 85px;
+    height: 24px;
+    background-color: #ffe100;
+    text-align: center;
+    line-height: 24px;
+}
+.shuoming>div:nth-of-type(3)>a{
+    width: 85px;
+    text-decoration: none;
+    height: 24px;
+
+    font-size: 12px;
+   /* background-color: #ffe100;*/
+}

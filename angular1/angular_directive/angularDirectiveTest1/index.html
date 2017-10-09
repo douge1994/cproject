@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>directive_scope</title>
+</head>
+<body ng-controller="firstCtrl">
+	<!-- <div>{{name}}</div> -->
+	<test-directive name='value'></test-directive>
+	<!-- angular标准 -->
+	<!-- <h1>第一条</h1>
+	回调函数使用命名函数，不使用匿名函数；<br>
+	方便调试，减少回调函数的数量；
+	不要使用控制器做如下事情：
+		DOM操作：使用数据双向绑定和自定义指令执行操作<br>
+		表单处理：使用angularjs中的form controls进行操作<br>
+		数据格式化展示：使用angularjs的过滤器filter来进行操作<br>
+		不同控制器之间的数据共享：使用自定义服务service进行处理<br>
+		组件生命周期的操作：使用angularjs中自定义的服务service进行处理<br>
+		 -->
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1 id="aa" ng-click="deleteTimmer()">点我清除timmer</h1>
+</body>
+<script type="text/javascript" src='../lib/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../lib/angular.min.js"></script>
+<script type="text/javascript" src="service111.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+<script type="text/javascript" src="directive.js"></script>
+
+</html>

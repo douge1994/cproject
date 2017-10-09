@@ -1,0 +1,195 @@
+.hehe{
+    font-size: 13px;
+    width: 180px;
+    float: left;
+    margin-left: 20px;
+    height: 34px;
+    line-height: 34px;
+    color: rgba(145, 145, 145, 0.68);
+}
+.xixi{
+    line-height: 17px;
+}
+
+/***************footer***************/
+#footer{
+    width: 1349px;
+    height: 500px;
+    background-color: #232323;
+    position: relative;
+    float: left;
+}
+/*top*/
+#top{
+    background-color:#eda900;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    color: #5c5c5c;
+    border-radius: 23px;
+    position: absolute;
+    top: -23px;
+    left: 650px;
+    cursor: pointer;
+}
+/*classification*/
+#classification{
+    height: 390px;
+    width:370px;
+    /*background-color: red;*/
+    float: left;
+    margin-left: 175px;
+}
+/*classification1*/
+.classification1{
+    width: 380px;
+    height: 200px;
+    margin-top: 10px;
+    /*background-color: #000099;*/
+}
+.classification1_4,
+.classification1_1,
+.classification1_2,
+.classification1_3{
+    width: 75px;
+    height: 200px;
+    float: left;
+}
+.classification1_4{
+    width: 90px!important;
+}
+.classification1_4 div,
+.classification1_1 div,
+.classification1_2 div,
+.classification1_3 div{
+    height: 30px;
+    line-height: 30px;
+}
+.classification1 a{
+    text-decoration: none;
+    font-size: 13px;
+    color: rgba(145, 145, 145, 0.68);
+}
+.fristA{
+    font-size: 14px!important;
+    color: rgba(255, 255, 255, 0.84) !important;
+}
+/*contact*/
+#contact{
+    height: 390px;
+    width:260px;
+    /* background-color: gold;*/
+    float: left;
+}
+.contact_1{
+    font-size: 18px;
+    color:rgba(255, 255, 255, 0.84) ;
+    margin-top: 110px;
+}
+.contact_2,.contact_3,.contact_4{
+    margin-top: 15px;
+}
+#footer .fa{
+    font-size: 18px;
+    width: 34px;
+    height: 28px;
+    border-radius: 17px;
+    background-color: rgba(145, 145, 145, 0.68);
+    text-align: center;
+    padding-top: 6px;
+    float: left;
+}
+.hehe{
+    font-size: 13px;
+    width: 180px;
+    float: left;
+    margin-left: 20px;
+    height: 34px;
+    line-height: 34px;
+    color: rgba(145, 145, 145, 0.68);
+}
+.xixi{
+    line-height: 17px;
+}
+.hengX{
+    width: 260px;
+    height: 1px;
+    background-color: rgba(145, 145, 145, 0.68);
+    margin-top: 30px;
+}
+.Sodal{
+    color: rgba(145, 145, 145, 0.68);
+    margin-top: 20px;
+}
+.Sodal a{
+    color: rgba(145, 145, 145, 0.68);
+    text-decoration: none;
+    margin-left: 5px;
+}
+/*Exhibition*/
+#Exhibition{
+    height: 390px;
+    width:400px;
+    /*background-color: #000099;*/
+    float: left;
+    margin-left: 60px;
+}
+.Exhibition_1{
+    font-size: 18px;
+    color:rgba(255, 255, 255, 0.84) ;
+    margin-top: 110px;
+    width: 400px;
+    height: 25px;
+}
+ #header .img2, .img3, .img4{
+    margin-left: 15px;
+    margin-top: 15px;
+}
+form input:nth-child(1){
+    width: 230px;
+    height: 45px;
+    background-color:rgba(145, 145, 145, 0.68);
+    border: none;
+    outline: none;
+    margin-top:60px;
+}
+form input:nth-child(2){
+    height: 45px;
+    width: 127px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    background-color:#eda900;
+    cursor: pointer;
+}
+/*Split*/
+#Split{
+    width: 1060px;
+    height: 1px;
+    background-color: rgba(145, 145, 145, 0.68);
+    margin-left: 170px;
+}
+/*End*/
+#End div:nth-child(1){
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-left: 170px;
+    margin-top: 15px;
+    color: rgba(145, 145, 145, 0.68);
+}
+#End div:nth-child(2){
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-left: 82px;
+    margin-top: 15px;
+}
+#End a{
+    color: rgba(145, 145, 145, 0.68);
+    text-decoration: none;
+    margin-left: 10px;
+}

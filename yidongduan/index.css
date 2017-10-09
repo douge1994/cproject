@@ -1,0 +1,17 @@
+body {
+  color: red; }
+
+.a {
+  display: block;
+  color: red; }
+
+.b {
+  display: block;
+  border: 1px solid red;
+  width: 1.33333rem;
+  height: 0.66667rem; }
+
+.c {
+  width: 30px; }
+
+/*# sourceMappingURL=index.css.map */

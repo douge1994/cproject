@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>angular_componay_test</title>
+</head>
+<body ng-controller="myCtrl">
+    <h1 style="text-align:center">{{title}}</h1>
+    <input type="text" name="" placeholder="YourName" ng-model="value">
+    <br>
+    <input type="text" ng-model="value1">
+    {{value1}}
+    <button type="text" ng-click="getd()">pp</button>
+    <br>
+    <ul ng-repeat="num in numbers | filter:myFunction ">
+        <li>{{num}}</li>
+    </ul>
+    <ul class="error" ng-message="signup_form.name.$error" ng-messages-multiple>
+        <li ng-message='required'>sure your name</li>
+        <li ng-message='minlength'>at least 8 characters</li>
+        <li ng-message='maxlength'>no more than 40 words</li>
+    </ul>
+
+    <input type="text" ng-model="someProperty" placeholder="输入字段">
+    <button ng-model="button" ng-disabled="!someProperty">Abutton</button>
+
+    <label for="">{{state}}</label>
+    <input type="checkbox" 
+        ng-init="state = false" 
+        ng-model="state"
+        ng-checked="state">
+    
+    <!-- 先按年纪降序，再按名字升序 -->
+    <ul ng-repeat="item in items | orderBy:['-age','name']">
+        <li>{{item.name}} <span>{{item.age}}</span></li>
+    </ul>
+    <!-- 过滤器三种常用方式
+    {{ expression | filter }}
+    {{ expression | filter1 | filter2 | ... }}
+    {{ expression | filter:argument1:argument2:... }} 
+    自定义过滤器： 
+        在module中注册一个新的filter工厂函数。工厂函数会
+        返回一个新的过滤器函数，过滤器的输入作为过滤器函数的第一个参数，
+        其他过滤器的参数作为过滤器函数的附加参数传入
+    -->
+     <!-- 结果是124 -->
+    <span ng-init="value2 = 123">{{value2 | myFilter:222}}</span>
+   
+    <!-- 结果是$50.00 -->
+    <span ng-init="value3 = 50">{{value3 | currency:$}}</span>
+    
+    <form name="testForm">
+        <!-- 必须ng-model绑定某个数值再进行验证 -->
+        <!-- 必填项 required-->
+        <input type="email" required  name="email" placeholder="输入邮箱">
+        <br>
+        <!-- 最小长度 ng-minlength 最大长度 ng-maxlength-->
+        <input type="text" ng-maxlength="5" name="phone" placeholder="输入数字">
+        <br>
+        <!-- 匹配正则 ng-pattern="[a-zA-Z]"-->
+        <input type="text" placeholder="输入姓名">
+        <br>
+        <input type="email" name="email1" placeholder="输入正确的邮箱" ng-model="email">
+        <span ng-if="testForm.email1.$invalid">输入不合法</span>
+        <br>
+    </form>
+
+
+    <!-- 
+        $dirty 表单有填写记录
+        $valid 字段内容合法
+        $invalid 字段内容不合法
+        $pristine 表单没有填写记录 
+    -->
+    <h3>form实例1</h3>
+   <form name="myForm" novalidate> 
+        <p>用户名: 
+            <input type="text" name="user" ng-model="user" required> 
+            <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid"> 
+                <span ng-show="myForm.user.$error.required">用户名是必须的。</span> 
+            </span> 
+        </p> 
+        <p>邮  箱: 
+        <input type="email" name="email" ng-model="email" required> 
+            <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid"> 
+                <span ng-show="myForm.email.$error.required">邮箱是必须的。</span> 
+                <span ng-show="myForm.email.$error.email">非法的邮箱地址。</span> 
+            </span> 
+        </p> 
+        <p> 
+            <input type="submit"
+            ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+            myForm.email.$dirty && myForm.email.$invalid"> 
+        </p> 
+    </form>
+
+
+
+    <h3>form实例2</h3>
+    <form name="form" class="css-form" novalidate> 
+        Name: 
+        <input type="text" ng-model="user1.name" name="uName" required /><br/> 
+        E-mail: 
+        <input type="email" ng-model="user1.email" name="uEmail" required /><br/> 
+        <div ng-show="form.uEmail.$dirty && form.uEmail.$invalid" style="color:red"> 
+            Invalid: 
+            <span ng-show="form.uEmail.$error.required">Tell us your email.</span> 
+            <span ng-show="form.uEmail.$error.email">This is not a valid email.</span> 
+        </div> 
+        Gender:<br/> 
+        <input type="radio" ng-model="user1.gender" value="male" /> 
+        male 
+        <input type="radio" ng-model="user1.gender" value="female" /> 
+        female<br/> 
+        <br/> 
+        <!--ng-disabled为true时禁止使用，ng-disabled实时监控应用程序--> 
+        <button ng-click="reset()" ng-disabled="isUnchanged(user1)"> RESET </button> 
+        <button ng-click="update(user1)" ng-disabled="form.$invalid || isUnchanged(user1)"> SAVE </button> 
+    </form> 
+    <!-- 实例3 -->
+    <form name="myForm1" ng-submit="saveValue()"> 
+       <input name="userName" type="text" ng-model="user2.userName" required/> 
+       <input name="password" type="password" ng-model="user2.password" required/><br /> 
+       <input type="submit" ng-disabled="myForm1.$invalid"/> 
+    </form> 
+
+    <select name="" id="" ng-class="{a:a,b:b,c:c}">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+    </select>
+
+    <!-- <input type="email" name="email3" ng-model="email3" yan-zheng> -->
+
+
+
+    <form class="form-horizontal" role="form" id="custom_form" name="custom_form" novalidate>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">多个email</label>
+            <div class="col-sm-10">
+                <input yan-zheng name="user_email" ng-model="user3.email" required class="form-control" placeholder="自定义验证，多个邮箱地址，以“；”或者“;”分割" />
+                验证通过：{{custom_form.user_email.$valid}}
+            </div>
+        </div>
+        <div class="form-group  text-center">
+            <input class="btn btn-primary btn-lg" ng-disabled="custom_form.$invalid" type="submit" value="提交" />
+        </div>
+    </form>
+
+    <!-- <span>{{number1}}</span> -->
+    <div ng-messages="myForm.name.$error" ng-messages-multiple
+        ng-messages-include ="@Url.Content("error.html")">
+    </div> 
+    ng-pristine
+    ng-touched
+    ng-pending
+    ng-dirty
+    <!--自定义验证之ngModelController  -->
+    <div style="color:darkgray;text-decoration:blueviolet;text-indent:5px;width:700px; margin:0 auto; height:auto">
+    核心属性
+        <p>1.$viewValue 视图里的值</p>
+        <p>2.$modelValue 数据模型里的值<br></p>
+    核心管道
+        <p>1.$parsers改变视图值的格式，并更新到模型（$viewValue->$modelValue）,与之相对的是$formatters,刚好反过来</p>
+        <p>2.$validators用来添加同步验证器</p>
+        <p>3.$asyncValidators用来添加异步验证器<br></p>
+    常用属性：
+        <p>1.$error 没有通过的验证器名称及对应的错误信息</p>
+        <p>2.$valid 表单项是否都通过验证，都通过时为 true，与之相对的是 $invalid</p>
+        <p>3.$touched 表单项是否被访问过，如果获得过焦点，在失去时该值为 true，与之相对的是 $untouched</p>
+        <p>4.$dirty 表示用户是否和表单项交互过（比如输入一些东西），只要有任何改变，该值为 true，与之相对的是 $pristine<br></p>
+    常用方法
+        <p>1.$render 定义视图具体的渲染方式</p>
+        <p>2.$setViewValue 设置视图值（需要手动触发一个 $digest），使用场景是在自定义指令中监听自定义事件（比如使用具有回调的 jQuery 插件）</p>
+
+
+        <p>在自定义的指令中，我们可以添加我们的验证方法到ngModelController的$validators对象上。</p>
+        <p>为了取得这个controller对象，我们需要requirengModel指令。</p>
+        <p>在$validators对象上的每个方法都接收modelValue和viewValue两个值做为参数。</p>
+        <p>在你绑定的验证方法返回一个值(true,false)之后，Angular会在内部调用$setValidity方法。</p>
+        <p>验证会在每一次输入框的值改变($setViewValue被调用)或者模型的值改变。</p>
+        <p>验证发生在$parsers和$formatters成功运行之后，验证不通过的项会做为ngModelController.$error的属性存储起来。</p>
+        <p>另外，在这个controller对象上，还有一个$asyncValidators对象，如果你的验证是异步的，则需要加验证附加在这个对象上，比如说用户注册时输入手机号，我们需要在后端验证该手机号是否已经注册，这个验证方法必须return一个promise对象，然后在验证通过时调用延迟对象的resolve，失败时调用reject，还未完成的异步的验证存储在ngModelController.$pending中。</p>
+        <p>
+
+    </div>
+
+    forExample
+    <form name="register_form" ng-submit="save()">  
+        <div class="form-group">  
+            <label for="phoneNumber">  
+            手机号(不能重复):  
+            </label>  
+            <input type="text" class="form-control" ng-model="user4.phoneNumber" id="phoneNumber" name="phoneNumber" required phone>  
+        </div>  
+        <div class="form-group">  
+            <label for="username">  
+            用户名(必须大于五位):  
+            </label>  
+            <input type="text" class="form-control" ng-model="user4.username" name="username" required username>  
+        </div>
+        <div class="form-group">  
+            <label for="email1">  
+            电子邮箱:  
+            </label>  
+            <input type="text" class="form-control"  ng-model="user4.email1" name="email1" required email1>  
+            <div ng-show="register_form.email1.$dirty && register_form.email1.$invalid" style="color:red"> 
+                Invalid: 
+                <span ng-show="register_form.email1.$error.required">Tell us your email.</span> 
+                <span ng-show="register_form.email1.$error.email1">This is not a valid email.</span>  
+            </div>  
+        </div>
+        <button class="btn btn-block btn-primary" type="submit">提交</button>  
+    </form>  
+    <h3>用户对象</h3>  
+    <pre>  {{ user4 | json }}  </pre> 
+
+
+
+    <!-- <div>案例3
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="name" required>
+            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+        </div>
+
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
+            <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+            <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
+        
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" ng-model="email">
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
+    </div> -->
+
+    <div>
+        <input type="text" ng-model="testValue.name"><br>
+        {{testValue.name}}{{test1Value.last}}
+    </div>
+
+    <div ng-controller="myCtrlChild">
+        <input type="text" ng-model="test1Value.name"><br>
+        {{test1Value.name}}{{test1Value.last}}
+
+    <!-- <select ng-change="getValue()" ng-init='selectedName=optionValue[0] ' ng-model="selectedName" ng-options="x.name for x in optionValue">
+    </select>    -->
+
+    <select-directive valuesGet='huoqu(data)' value='optionValue' ></select-directive>
+    </div>
+
+
+
+
+</body>
+<script type="text/javascript" src='../lib/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../lib/angular.min.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+<script type="text/javascript" src="filter.js"></script>
+<script type="text/javascript" src="directive.js"></script>
+<script type="text/javascript" src="test-directive.js"></script>
+<script type="text/javascript" src="service.js"></script>
+<script type="text/javascript" src="../angularDirectiveTest1/service111.js"></script>
+<script type="text/javascript" src="select-directive.js"></script>
+</html>

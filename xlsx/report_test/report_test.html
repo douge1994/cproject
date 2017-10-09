@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #div1,#div2{
+        width: 100px;
+        height: 200px;
+        border: 1px solid red;
+    }
+</style>
+<body ng-controller="mainCtrl">
+    <table>
+        <tr ng-repeat="a in data1">
+            <td>{{a}}</td>
+        </tr>
+    </table>
+    <p>{{name}}</p>
+    <input type="file"ng-click="importf(this)" ng-model="value" />
+    <div id="demo">
+
+    </div>
+
+    <button ng-click="downloadExl()">导出</button>
+    <!--以下a标签不需要内容 -->
+    <a href="" download="这里是下载的文件名.xlsx" id="hf"></a>
+
+    <!-- <button id="tableau">点击</button>
+    <div id="div1">拖拽</div>
+    <div id="div2"></div>-->
+
+    <!--  <button onclick="downloadExl(jsono)">导出</button>
+    &lt;!&ndash;
+        以下a标签不需要内容
+    &ndash;&gt;
+    <a href="" download="这里是下载的文件名.xlsx" id="hf"></a>
+    <input type="file" id="file"/>
+    <input type='file' id='upload'>-->
+
+
+</body>
+<script src="angular.min.js"></script>
+<script src="shim.js"></script>
+<script src="cpexcel.js"></script>
+<script src="xlsx.full.min.js"></script>
+<script src="report_test.js"></script>
+</html>

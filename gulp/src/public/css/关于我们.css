@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.head{
+    width: 1349px;
+    height: 710px;
+    /*border: 1px solid red;*/
+}
+/*.logo{*/
+    /*width: 1349px;*/
+    /*height: 170px;*/
+/*}*/
+.banner{
+    width: 1349px;
+    height:540px ;
+}
+.banner img{
+    width:100%;
+    height: 100%;
+}
+.content1{
+    width: 1149px;
+    margin: 0 auto;
+}
+.content1-1:first-child{
+    margin-top: 50px;
+}
+.content1-1>div:nth-child(2){
+    width: 1149px;
+    height: 2px;
+    background-color: #000000;
+}
+.content1-2{
+    width: 1149px;
+    text-align: center;
+    font-size: 30px;
+    padding: 50px 0 50px 0;
+}
+.content2{
+    width: 1149px;
+    margin: 0 auto;
+}
+.content2>div:nth-child(1){
+    width: 30px;
+    height: 30px;
+    background-color: #ffff00;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+}
+.content2-1{
+    width: 400px;
+    height: 300px;
+    float: left;
+}
+.content2-1>img{
+    width: 100%;
+    /*height: 100%;*/
+}
+.content2-3{
+    float: left;
+    width: 300px;
+    height: 250px;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #808080;
+}
+.content2-3>p{
+    /*width: 300px;*/
+    margin: 30px 10px 0 10px;
+    /*line-height: 23px;*/
+    color: #ffffff;
+}
+.content2-2{
+    float: left;
+    width: 0;
+    height: 0;
+    margin-top: 120px;
+    border-top: 10px solid transparent;
+    border-right: 15px solid #808080;
+    border-bottom: 10px solid transparent;
+}
+.content2-2>img{
+    width: 100%;
+    height: 100%;
+}
+.content2-4{
+    float: left;
+    width: 80px;
+    height: 120px;
+    line-height:110px ;
+    text-align: center;
+    background-color: gold;
+   margin: 50px 0 0 30px;
+    box-shadow: 10px 10px yellow ;
+
+}
+.content2-5{
+    clear: both;
+}
+.content3{
+    width: 1349px;
+    margin: 100px 0 100px 0;
+
+}
+.content3>img{
+    width: 100%;
+}
+.content4{
+    width: 1149px;
+    margin: 0 auto;
+}
+.content4-1{
+    width: 1149px;
+    height: 55px;
+    margin: 0 auto;
+    position: relative;
+}
+.content4-1>div:nth-child(1){
+    position: absolute;
+    top: 15px;
+    left: 500px;
+    width: 150px;
+    height: 2px;
+    background-color: #808080;
+}
+.content4-1>div:nth-child(2){
+    width: 70px;
+    position: absolute;
+    left: 540px;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 0 0 50px 0;
+}
+.content4-1>div:nth-child(3){
+    width: 1149px;
+    height: 2px;
+    background-color: #808080;
+    position: absolute;
+    top: 50px;
+}
+.content5{
+    width: 1149px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 50px 50px 160px;
+}
+.content5>div:nth-child(1){
+    width: 50px;
+    height: 30px;
+    background-color: #808080;
+    text-align: center;
+    font-size: 22px;
+    float: left;
+    margin-right: 10px;
+    /*font-weight: 500;*/
+}
+.content5-1{
+    list-style: none;
+}
+.content5-1>li{
+    width: 170px;
+    height: 30px;
+    float: left;
+    line-height: 30px;
+    margin-right: 10px;
+    background-color: #808080;
+}
+.content5>div:nth-child(3){
+    width: 50px;
+    height: 30px;
+    background-color: #808080;
+    text-align: center;
+    font-size: 22px;
+    float: left;
+    margin-right: 10px;
+
+    /*font-weight: 500;*/
+}
+.content5>div:last-child{
+    clear: both;
+}
+.content6{
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 24px;
+}
+.content6>div:first-child{
+    font-size: 25px;
+    padding: 30px 0 50px 0;
+}
+.content6>div:last-child{
+
+}
+.content7{
+    width:1349px ;
+    height: 540px;
+    margin-top: 50px;
+    background-image: url("../image/关于我们/beijing.jpg");
+}
+.content7>div{
+    width:980px;
+    height: 440px;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+.content7 div img{
+    width: 100%;
+    height: 100%;
+}

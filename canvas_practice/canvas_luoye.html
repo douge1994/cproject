@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>落叶效果</title>
+</head>
+<style>
+    button{
+        position: absolute;
+        left: 0;
+        top: 50px;
+    }
+    body {
+        background-color: white;
+    }
+</style>
+<body>
+<button onclick="change()" value="切换值">切换值</button>
+<div id="one"></div>
+    <canvas width="800" height="800" id="canvas"></canvas>
+</body>
+<script>
+    var can = document.getElementById('canvas');
+    var c = can.getContext('2d');
+    var canWid = can.width;
+    var canHei = can.height;
+/*  function change(){
+        y = y+50;
+    }
+  //画树叶
+    var y =0;
+    var x = 10;
+    function drawLeaf(){
+        c.save();
+
+        c.translate(0,x);
+        x++;
+        src = '../canvas_image/leaf.jpg';
+        c.beginPath();
+        var a = new Image();
+        a.src = src;
+      var d =  c.drawImage(a,Math.random()*1000+100,y,30,30);
+        console.log(Math.random()*30+100);
+        x.push(d)
+        console.log(x)
+        c.closePath();
+        c.restore();
+    }
+    setInterval(drawLeaf,1000);*/
+    //树叶原型；
+    var m = document.getElementById("one");
+    function leafBasic(src,x,y){
+        this.src = src;
+        this.x = x;
+        this.y = y;
+        this.state = true;
+        this.imgNode=document.createElement("img");
+        //移动图片
+        this.moveLeaf=function move(){
+            this.y+=2;
+            //this.x+=30;
+            this.imgNode.style.top=this.y+"px";
+            this.imgNode.style.left=this.x+"px";
+        }
+        //创建图片
+        this.createLeaf=function(){
+            //创建出一个图片节点；
+            this.imgNode.setAttribute("src",this.src);
+            m.appendChild(this.imgNode);
+            this.imgNode.style.position="absolute";
+            this.imgNode.style.left=this.x+"px";
+            this.imgNode.style.top=this.y+"px";
+            this.imgNode.style.width = '30px';
+            this.imgNode.style.height = '30px';
+        }
+        this.createLeaf();
+        this.moveLeaf();
+    }
+    var he;
+    var listLeaf = [];
+    function createLeaf(){
+        //y = Math.floor(Math.random()*600);
+        x = Math.floor( Math.floor(Math.random()*1000+100));
+        he = new leafBasic('../canvas_image/leaf.jpg',x,0);
+        listLeaf.push(he);
+    }
+    function moveLeaf(){
+        for(var i =0;i<listLeaf.length;i++){
+            listLeaf[i].moveLeaf();
+            if(listLeaf[i].y >600){
+                listLeaf[i].state = false;
+            }
+            if(listLeaf[i].state == false){
+                listLeaf.splice(i,1);
+                m.removeChild(listLeaf[i].imgNode)
+            }
+        }
+    }
+    setInterval(createLeaf,2000);
+    setInterval(moveLeaf,50)
+</script>
+</html>

@@ -1,0 +1,20 @@
+$fontColor:red;
+body{
+    color: $fontColor;
+    }
+.a {
+    display: block;
+    color: $fontColor;
+}
+@function px-rem( $p){
+   @return  $p / 75 * 1rem;
+}
+.b {
+    display: block;
+    border: 1px solid red;
+    width:px-rem(100);
+    height: px-rem(50);
+}
+.c {
+    width: 30px;
+}

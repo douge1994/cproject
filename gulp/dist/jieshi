@@ -1,0 +1,14 @@
+说明：
+     dist是src打包进来的文件夹
+     src中是各种源码以及nodemoudles
+ 环境安装：
+     npm install -g gulp   //全局安装构建任务
+     npm init //初始化项目依赖包
+     npm install --save-dev gulp //生成项目依赖
+
+     //语法
+    var gulp = require('gulp');
+
+    gulp.task('onehtml',function(){
+        gulp.src('src/public/html/Club.html').pipe(gulp.dest('dist/public/html'))
+    })

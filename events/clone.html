@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    var x={
+        a:'wang',
+        c:function (){
+            var laseName = 'chuan';
+            return  console.log(laseName);
+        },
+        d:{e:'uuuu',f:'wer'}
+    }
+    function cloneData(x){
+        var h;
+        h = x
+        console.log(h.c() instanceof Object);
+    }
+    cloneData(x)
+
+    //深度复制（并没有复制函数方法，仅仅复制了对象和数组）
+    function clone(Obj) {
+        var buf;
+        if (Obj instanceof Array) {
+            buf = [];  // 创建一个空的数组
+            var i = Obj.length;
+            while (i--) {
+                buf[i] = clone(Obj[i]);
+            }
+            return buf;
+        } else if (Obj instanceof Object){
+            buf = {};  // 创建一个空对象
+            for (var k in Obj) {  // 为这个对象添加新的属性
+                buf[k] = clone(Obj[k]);
+            }
+            return buf;
+        }else{
+            return Obj;
+        }
+    }
+    var d = clone(x);
+    d.c = x.c; //复制对象中的公用方法
+    d.c();
+
+    //深度复制（包括函数方法）
+    function deepCopy(p, c) {
+        var c = c || {};
+        for (var i in p) {
+            if (typeof p[i] === 'object') {
+                c[i] = (p[i].constructor === Array) ? [] : {};
+                deepCopy(p[i], c[i]);
+            } else {
+                c[i] = p[i];
+            }
+        }
+        return c;
+    }
+   var d = deepCopy(x)
+    d.c()
+
+    //返回传递给他的任意对象的类
+    function isClass(o){
+        if(o===null) return "Null";
+        if(o===undefined) return "Undefined";
+        return Object.prototype.toString.call(o).slice(8,-1);
+    }
+    function deepClone(obj){
+        var result,oClass=isClass(obj);
+        //确定result的类型
+        if(oClass==="Object"){
+            result={};
+        }else if(oClass==="Array"){
+            result=[];
+        }else{
+            return obj;
+        }
+        for(var key in obj){
+            var copy=obj[key];
+            if(isClass(copy)=="Object"){
+                result[key]=arguments.callee(copy);//递归调用
+            }else if(isClass(copy)=="Array"){
+                result[key]=arguments.callee(copy);
+            }else{
+                result[key]=obj[key];
+            }
+        }
+        return result;
+    }
+    var th = deepClone(x)
+    th.c()
+</script>
+</html>

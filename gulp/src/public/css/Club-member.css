@@ -1,0 +1,334 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei UI";
+}
+.header
+{
+    width: 1349px;
+    height: 671px;
+}
+.nav{
+    width: 1349px;
+    height: 170px;
+    background: #eda800;
+}
+.banner
+{
+    width: 1349px;
+    height: 500px;
+    background: url("../images/Club-member/camp_02.png") no-repeat;
+    float: left;
+}
+.banner-main
+{
+    width: 457px;
+    height: 151px;
+    margin: 187px auto;
+    position: relative;
+}
+.banner-main-top
+{
+    width: 457px;
+    height: 64px;
+    background: black;
+    opacity: 0.5;
+    position: absolute;
+    left: 0px;
+    top: -50px;
+}
+.banner-main-top>p
+{
+    color: white;
+    font-size: 40px;
+    width: 300px;
+    margin: 10px 70px;
+
+}
+.search
+{
+    width: 326px;
+    height: 49px;
+    border: 3px solid rgba(60,44,26,0.7);
+    margin-top: 30px;
+    text-align: center;
+    float: left;
+}
+.search-button
+{
+    width: 111px;
+    height: 54px;
+    border: 3px solid rgba(60,44,26,0.7);
+    outline: none;
+    cursor: pointer;
+    float: left;
+    background-image: url("../images/Club-member/search.png");
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.wrap
+{
+    width: 100%;
+    height: 3000px;
+    background: black;
+    opacity: 0.6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+.content
+{
+    width: 1159px;
+    height: 2030px;
+    margin: 0 auto;
+    position: relative;
+}
+.location
+{
+    width: 1159px;
+    height: 30px;
+    float: left;
+    margin-top: 20px;
+    color: #929292;
+    font-size: 14px;
+    border-bottom: 1px solid gray;
+}
+.con-1
+{
+    width: 1159px;
+    height: 164px;
+    border: 1px solid red;
+    float: left;
+    margin-top: 10px;
+}
+.con-1-list1
+{
+    width: 190px;
+    height: 163px;
+    float: left;
+}
+.con-1-list2
+{
+    width: 347px;
+    height: 163px;
+    float: left;
+    margin-left: 20px;
+}
+.con-1-list3
+{
+    width: 186px;
+    height: 163px;
+    float: left;
+    margin-left: 6px;
+}
+.con2
+{
+    width: 1159px;
+    height: 292px;
+    float: left;
+    margin-top: 15px;
+}
+.con2-list1
+{
+    width: 228px;
+    height: 286px;
+    float: left;
+}
+.con2-share
+{
+    width: 228px;
+    height: 286px;
+    margin-left: 5px;
+    float: left;
+}
+.con2-list3
+{
+    width: 454px;
+    height: 291px;
+    float: left;
+    margin-left: 10px;
+}
+.con3
+{
+    width: 1159px;
+    height: 298px;
+    margin-top: 15px;
+    float: left;
+}
+.con3-list1
+{
+    width: 280px;
+    height: 296px;
+    float: left;
+}
+.con3-list2
+{
+    width: 404px;
+    height: 296px;
+    float: left;
+    margin-left: 6px;
+}
+.con3-list3
+{
+    width: 456px;
+    height: 296px;
+    float: left;
+    background: #f0f0f0;
+}
+.con3-list3-main
+{
+    width: 362px;
+    height: 112px;
+    margin: 80px 47px ;
+    float: left;
+}
+.con3-list3-main>p
+{
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 10px;
+}
+.con4
+{
+    width: 1159px;
+    height: 368px;
+    margin-top: 15px;
+    float: left;
+}
+.con4-list1
+{
+    width: 575px;
+    height: 365px;
+    float: left;
+}
+.con4-list2
+{
+    width: 289px;
+    height: 365px;
+    margin-left: 6px;
+    float: left;
+}
+.con4-list3
+{
+    width: 272px;
+    height: 365px;
+    margin-left: 6px;
+    float: left;
+}
+.con5
+{
+    width: 1149px;
+    height: 290px;
+    float: left;
+    margin-top: 15px;
+}
+.con5-list1
+ {
+     width: 922px;
+     height: 290px;
+     float: left;
+ }
+.con5-list2
+{
+    width: 225px;
+    height: 290px;
+    float: left;
+    background:#f0f0f0;
+}
+.con5-list2-main
+{
+    width: 146px;
+    height: 150px;
+    float: left;
+    margin: 82px 40px;
+}
+.con5-list2-main>p
+{
+    line-height: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.con6
+{
+    width: 1159px;
+    height: 370px;
+    margin-top: 15px;
+    float: left;
+}
+.con6>img
+{
+    width: 288px;
+    height: 362px;
+}
+.con6-list1
+{
+    float: left;
+}
+.con6-list2
+{
+    margin-left: 6px;
+    float: left;
+}
+/*
+.Popup
+{
+    width: 1150px;
+    height: 720px;
+    background: white;
+    position: absolute;
+    left: 10px;
+    top: 200px;
+    float: left;
+}
+.Popup-left
+{
+    width: 671px;
+    height: 720px;
+    float: left;
+}
+.popup-middle
+{
+    width: 24px;
+    height: 720px;
+    background: #d0d0d0;
+    float: left;
+}
+.popup-right
+{
+    width: 391px;
+    height: 709px;
+    float: left;
+    margin-left: 30px;
+    border: 1px solid royalblue;
+}*/
+.fenye{
+    position: absolute;
+    bottom: 40px;
+}
+
+.fenye>ul>li{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    border: solid 1px gray;
+    background-color: white;
+    margin-left: 20px;
+    padding: 0px;
+    color: gray;
+    list-style: none;
+    float: left;
+    font-size: 12px;
+}
+.fenye>ul>li:first-child{
+    margin-left: 500px;
+}
+.fenye>ul>li:first-child,.fenye>ul>li:last-child{
+    background-color: #eda800;
+    color: white;
+    border: solid 1px white;
+}
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+<!--
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+-->
+    <meta content="email=no" name="format-detection">
+    <title>移动端布局</title>
+    <link rel="stylesheet"  href="index.css">
+</head>
+<script type="text/javascript">
+    var dpr, rem, scale;
+    var docEl = document.documentElement;
+    var fontEl = document.createElement('style');
+    var metaEl = document.querySelector('meta[name="viewport"]');
+    dpr = window.devicePixelRatio || 1;
+    /*console.log(window.devicePixelRatio);*/
+    rem = docEl.clientWidth * dpr / 10;
+    /*console.log(docEl.clientWidth);
+     console.log(rem);*/
+    console.log(dpr);
+    scale = 1 / dpr;
+
+    // 设置viewport，进行缩放，达到高清效果
+    metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+    // 设置data-dpr属性，留作的css hack之用
+    docEl.setAttribute('data-dpr', dpr);
+    // 动态写入样式
+    docEl.firstElementChild.appendChild(fontEl);
+    fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+    // 给js调用的，某一dpr下rem和px之间的转换函数
+    window.rem2px = function(v) {
+        v = parseFloat(v);
+        return v * rem;
+    };
+    window.px2rem = function(v) {
+        v = parseFloat(v);
+        return v / rem;
+    };
+    window.dpr = dpr;
+    window.rem = rem;
+</script>
+
+<body>
+    <div class="box1"></div>
+    <div class="box">
+        <div class="header">
+                <span class="a">back</span>
+                <span class="b">middle</span>
+                <span class="c">next</span>
+        </div>
+        <div class="contain">
+            <p>这个是正文</p>
+<!--
+            <p><img src="../canvas_image/leaf.jpg" alt=""/></p>
+-->
+        </div>
+        <div class="footer">
+            <span class="a">one</span>
+            <span class="b">two</span>
+            <span class="c">three</span>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

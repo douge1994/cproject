@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>directive</title>
+</head>
+<style>
+    .box {
+        position: relative;
+        margin: 0 auto;
+        width: 300px;
+        height: 30px;
+        outline: 1px solid red;
+    }
+    .box1 {
+        position: absolute;
+        top:60px;
+         display: none; 
+        width:100px;
+        height: 20px;
+        outline: 1px solid saddlebrown;
+    }
+    .box1::before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        display: block;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 20px solid purple;
+        margin-top: -20px;
+    }
+</style>
+<body ng-controller="myCtrl">
+<div>
+    <p ng-click="user()">点击我</p>
+<!--
+    <input type="text" ng-model="test" placeholder="这个是test"/>
+-->
+    <span>第二个</span>
+    <test-directive value='options' get-option='getOptionSelected(datas)' value1="getV(data1)" say="godC(data)" abg-name="{{abgName}}" name="test" ></test-directive>
+</div>
+<table >
+    <tr>
+        <td>123</td>
+    </tr>
+</table>
+<form action="">
+    <label for="">
+        <input type="radio" name="test" ng-checked='true'  ng-model="value1" value="true" ng-change="getStatu()">男
+    </label>
+    <label for="">
+        <input type="radio" name="test" ng-model="value1" value="false" ng-change="getStatu()">女
+    </label>
+    <span ng-if="!empty">这个是假货！</span>
+</form>
+
+    <div class="box">
+        <span class="icon"></span>
+        <span class="words">文字</span>
+        <div class="box1">
+            <div>123123</div>
+            <div></div>
+        </div>
+    </div>
+
+        <ul>
+        <li ng-repeat="list in lists">{{list}}</li>
+        <ul>
+            <li ng-repeat="list in lists">{{list}}</li>
+        </ul>
+    </ul>
+    <ul>
+        <li ng-repeat="x in a">
+            <li>
+                {{a.name}}<br>
+                <ul>
+                    <li ng-repeat="list in aequipValues">
+                        {{list.unit}} :
+                    </li>
+                </ul>
+            </li>
+        </li>
+    </ul>
+</body>
+<script src="lib/jquery-1.11.1.js"></script>
+<script src="lib/angular.min.js"></script>
+<script src="controller.js"></script>
+<script src="directive.js"></script>
+<script>
+    var a="{success:true}"
+    console.log(eval(a));
+</script>
+</html>

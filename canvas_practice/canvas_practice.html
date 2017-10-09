@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas_practice</title>
+</head>
+<body>
+    <canvas width="1000" height="1000" id="canvas"></canvas>
+
+    <div><button onclick = "frient(event)">皮奥利安</button></div>
+</body>
+<script src="../shouce/jquery-1.11.1.js"></script>
+<script>
+
+    function frient(event){
+        console.log(event.srcElement)
+    }
+    try{
+     console.log('')
+    } catch(error){
+        alert(123)
+    }
+    var can = document.getElementById('canvas');
+    var ctx = can.getContext('2d');
+    var canWid = can.width;
+    var canHei = can.height;
+//绘制矩形
+    //填充矩形；（x,y是横纵坐标，原点在canvas的左上角）
+    ctx.fillRect(x,y,width,height);
+    //边框矩形，默认是1px 黑色
+    ctx.strokeRect(x,y,width,height);
+    //清除指定的矩形区域，变为透明
+    ctx.clearRect(x,y,width,height);//绘制动态效果时，常用来清除整个画布
+//绘制路径
+    //新建路径。beginPath是绘制新图形的开始
+    ctx.beginPath();
+    //路径（线）的起点,一般在上面这条命令后执行
+    ctx.moveTo(x,y);
+    //线条的终点
+    ctx.lineTo(x,y);
+    //绘制圆形
+    ctx.arc(x,y,r,start,end,true/false);
+    //绘制弧形
+    ctx.arcTo(x1,y1,x2,y2,r);//当前端点、（x1,y1）与（x2,y2），r半径组成的弧形
+    //闭合路径，不是必须的，如果线的终点跟起点一起，会自动闭合
+    ctx.closePath()
+    //通过线条绘制轮廓（边框）
+    ctx.stroke()
+    //通过路径填充区域（实心）
+    ctx.fill();
+//样式
+    //（颜色）
+    ctx.fillStyle = 'red'; //针对fill（）有效的颜色
+    ctx.strokeStyle = 'red';//针对stroke（）有效的颜色，取值同上
+    ctx.globalAlpha = 0.5;//透明度
+    //(线段端点)
+    ctx.lineWidth = 2;//线条宽度
+    ctx.lineCap = 'butt(默认)/round(圆弧)/square(方形)'
+    //线段连接处
+    ctx.lineJoin = 'miter(默认)/round(圆角)/bevel(横线)'
+//虚线
+    ctx.setLineDash([4,3]) //设置虚线，参数为数组，第一个值为实现宽度，第二个值
+    //为空白的宽度
+    ctx.lineDashOffset = 0//虚线起始偏移量
+//图像
+    var img = new Image();
+    img.src = 'url';
+    ctx.drawImage(img,x,y,w,h);
+
+    ctx.drawImage(document.getElementById('img'),x,y,w,h)
+
+</script>
+<script>
+    var can = document.getElementById('canvas');
+    var ctx = can.getContext('2d');
+    var canWid = can.width;
+    var canHei = can.height;
+    //canWid = 500;
+    //canHei = 500;
+
+    ctx.fillRect(100,100,100,200)
+    ctx.strokeRect(1,1,5,5)
+    ctx.clearRect(100,100,50,50)
+
+
+    ctx.beginPath();
+    ctx.moveTo(20,20)
+    ctx.lineTo(100,80)
+    ctx.lineTo(100,50);
+    ctx.fillStyle = 'red'//红色填充
+    ctx.strokeStyle = 'green'//绿色边框
+    ctx.lineWidth = 10;
+    ctx.lineCap = 'square';//线段终点是方形
+    ctx.stroke();
+    ctx.fill();
+
+
+
+    var lineCap = ['butt','round','square'];
+    ctx.strokeStyle = 'black';
+    for (var i=0;i<lineCap.length;i++){
+        ctx.lineWidth = 15;
+        ctx.lineCap = lineCap[i];
+        ctx.beginPath();
+        ctx.moveTo(325+i*50,10);
+        ctx.lineTo(325+i*50,140);
+        ctx.stroke();
+    }
+
+    var lineJoin = ['round','bevel','miter'];
+    ctx.lineWidth = 10;
+    for(var i = 0;i<lineJoin.length;i++){
+        ctx.lineJoin = lineJoin[i];
+        ctx.beginPath();
+        ctx.moveTo(500,50+i*60);
+        ctx.lineTo(520,10+i*60);
+        ctx.lineTo(540,50+i*60);
+        ctx.lineTo(560,10+i*60);
+        ctx.lineTo(580,50+i*60);
+        ctx.stroke();
+    }
+
+    var img = new Image();
+    img.src = '../../lun_zi/html/1.png';
+    ctx.drawImage(img,500,200,300,300)
+
+        ctx.translate(600,600)
+        for (var i=1; i<6; i++){       // 从里到外一共6圈
+            ctx.save();
+            ctx.fillStyle = 'rgb('+(50*i)+','+(255-50*i)+',255)';
+            for (var j=0; j<i*6; j++){     // 每一圈有i*6个圆点
+                ctx.rotate(Math.PI*2/(i*6));
+                ctx.beginPath();
+                ctx.arc(0,i*12.5,5,0,Math.PI*2,true);
+                ctx.fill();
+            }
+            ctx.restore();
+        }
+
+
+
+  /*  ctx.save();
+    ctx.translate(100,100)
+    ctx.beginPath();
+    ctx.arc(0,0,80,0,2*Math.PI)
+    ctx.fillStyle = 'white';
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+    ctx.restore();*/
+
+  function drawCircle(){
+      ctx.save();
+      ctx.translate(100,100);
+      ctx.beginPath();
+      ctx.fillStyle = 'blue';
+      ctx.moveTo(0,50);
+      ctx.lineTo(0,100);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillText("3", 110, 10);
+      ctx.fillText("6", -7, 120);
+      ctx.fillText("9", -120, 10);
+      ctx.fillText("12", -16, -100);
+      ctx.closePath();
+      ctx.restore();
+  }
+
+    for(var i = 0;i<=12; i++){
+        drawCircle();
+        ctx.rotate((1/6)*Math.PI);
+    }
+
+
+    var start = Date();
+
+    var stop = Date.now();
+    console.log(start)
+    console.log(stop)
+</script>
+</html>

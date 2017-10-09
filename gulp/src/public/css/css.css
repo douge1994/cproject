@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+#top{
+    height: 170px;
+    width: 1349px;
+    background-color: black;
+}
+#content{
+    width: 1349px;
+    height: 923px;
+    background-image: url("../images/bg_02.png");
+    background-repeat: no-repeat;
+    background-size: 1349px 1100px;
+    padding-top: 90px;
+    position: relative;
+}
+.contrainer{
+    width:1150px;
+    margin: 0 auto;
+}
+.bg_color{
+    width: 1150px;
+    height: 156px;
+    background: #c7c6c6;
+}
+.bg_color ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.bg_color a{
+    display: block;
+    padding: 9px 58px 25px;
+}
+.bg_color a:link{
+    color:#505050;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+.bg_color a:visited{
+    color:#505050;
+}
+.bg_color a:hover{
+   background-color: #ffe100;
+}
+.bg_color a:active{
+    color:#505050;
+}
+.bg_color li{
+    height: 52px;
+    overflow: hidden;
+}
+.bg_color span{
+    display: block;
+    line-height: 16px;
+}
+#img img{
+    position: absolute;
+    top: -5px;
+    right: -80px;
+}
+.bg2_color{
+    background-color: #979797;
+    width: 1150px;
+    height: 110px;
+    padding-top: 40px;
+}
+.size{
+    font-size: 24px;
+    line-height: 33px;
+    color: white;
+    text-align: center;
+}
+.sanjiao{
+    width: 0px;
+    height: 0px;
+    border: 13px solid transparent;
+    border-top: 13px solid #979797;
+    margin: 0 auto;
+}
+.bg3_color{
+    margin-top: 10px;
+    background-color: #3b3b3b;
+    opacity: 0.6;
+    width: 1150px;
+    height: 580px;
+    position: relative;
+}
+.bg3_color input:first-child{
+    margin-top: 30px;
+    margin-left: 160px;
+    margin-right: 205px;
+    width: 297px;
+    background: #9c9c9c;
+    border: none;
+    height: 30px;
+}
+.bg3_color input:nth-child(2){
+    width: 297px;
+    background: #9c9c9c;
+    border: none;
+    height: 30px;
+}
+.bg3_color input:nth-child(4){
+    margin-left: 160px;
+    margin-top: 20px;
+    width: 800px;
+    background: #9c9c9c;
+    border: none;
+    height: 30px;
+}
+.name{
+    position: absolute;
+    top: 35px;
+    left: 113px;
+    color: white;
+    font-size: 14px;
+}
+.style{
+    position: absolute;
+    top: 85px;
+    left: 85px;
+    color: white;
+    font-size: 14px;
+}
+.sex{
+    position: absolute;
+    top: 35px;
+    left: 615px;
+    font-size: 14px;
+    color: white;
+}
+#footer{
+    width: 1349px;
+    height: 500px;
+    background: black;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    var setCookie = {
+        set:function(name, value, expires, path, domain, secure){
+            // expires = new Date((new Date()).getTime() +5000 );
+            //console.log(expires)
+            var cookieText = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+            if (expires) {
+                console.log(expires instanceof Date)
+                cookieText += '; expires=' + expires;
+            }
+            if (path) {
+                cookieText += '; expires=' + expires;
+            }
+            if (domain) {
+                cookieText += '; domain=' + domain;
+            }
+            if (secure) {
+                cookieText += '; secure';
+            }
+            document.cookie = cookieText;
+            return cookieText;
+        },
+        get:function(name){
+            var cookieName = encodeURIComponent(name) + '=';
+            var cookieStart = document.cookie.indexOf(cookieName);
+            var cookieValue = null;
+            if (cookieStart > -1) {
+                var cookieEnd = document.cookie.indexOf(';', cookieStart);
+                if (cookieEnd == -1) {
+                    cookieEnd = document.cookie.length;
+                }
+                cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+            }
+            return cookieValue;
+        },
+        delete:function(name){
+            document.cookie = name + "= ; expires=" + new Date(0);
+        }
+    }
+    setCookie.set('firstName','wang')
+</script>
+</html>

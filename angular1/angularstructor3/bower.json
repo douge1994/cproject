@@ -1,0 +1,23 @@
+{
+  "name": "angular3",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "wangchuan <991984903@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.6.5"
+  },
+  "dependencies": {
+    "angular-ui-router": "^1.0.5"
+  }
+}
