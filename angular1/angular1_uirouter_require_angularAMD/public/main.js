@@ -1,14 +1,25 @@
-//(function(){
+var libUrl='../lib';
     require.config({
         paths:{
-            "angular":'../lib/angular/angular.min',
-            "jquery":'../lib/jquery/jquery-2.1.0.min',
-            "uiRouter":'../lib/angular/angular-ui-router.min',
-            'angularAMD':'../lib/angularAMD/angularAMD.min',
-            'ngload':'../lib/angularAMD/ngload',
-
+            //库配置
+            "angular":libUrl+'/angular/angular.min',
+            "jquery":libUrl+'/jquery/jquery-2.1.0.min',
+            "uiRouter":libUrl+'/angular/angular-ui-router.min',
+            "angularAMD":libUrl+'/angularAMD/angularAMD.min',
+            "ngload":libUrl+'/angularAMD/ngload',
+            //插件等路径配置
+            "bootstrap":libUrl+'/bootstrap/assets/js/bootstrap.min',
+            /*datatable*/
+            "datatables": libUrl+"/dataTables/jquery.dataTables.min",
+            "datatables.net-bs": libUrl+"/dataTables/dataTables.bootstrap",
+            "datatables.net-buttons": libUrl+"/dataTables/dataTables.buttons.min",
         },
-        shim :{
+        map: { //使用本map配置,所有的模块都将加载下面文件，
+            '*': {
+                'css':libUrl+ '/require/css.min'
+            }
+        },
+        shim :{//垫片（非AMD模式资源的声明）
             'angular':{
                 exports:'angular'
             },
@@ -16,12 +27,16 @@
                 deps:['angular']
             },
             "angularAMD":["angular"],
-            "ngload":["angularAMD"]
+            "ngload":["angularAMD"],
+
+            "datatables.net-bs":["datatables"],
+            "datatables.net-buttons":["datatables"],
+            /*动态加载css样式 css!*/
+            "datatables":["jquery",'css!../lib/dataTables/jquery.dataTables.min','css!../lib/dataTables/buttons.bootstrap.min']
         },
-        deps:['app1']
-    })
-    //require.config(config);
-//})(window)
+        deps:['app1']//启动应用（依赖）<main作为html引入js需要依赖 全局的app1.js；若还依赖其他的全局，可以在此处声明>
+    });
+
 
 /*
 require.config是用来配置模块加载位置，
