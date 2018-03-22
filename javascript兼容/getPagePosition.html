@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取页面元素的位置</title>
+</head>
+<style>
+    .box {
+        width: 3600px;
+        height: 400px;
+        overflow: auto;
+        margin: 0 auto;
+        border: 1px solid blue;
+    }
+    .box p {
+        width: 100px;
+        height: 30px;
+        border: 1px solid red;
+        margin: 100px auto;
+    
+    }
+</style>
+<body>
+    <div class="box">
+        <p class="p1">123</p>
+    </div>
+</body>
+<script src="../shouce/jquery-1.11.1.js"></script>
+
+<script>
+    //由于在表格和iframe中，offsetParent对象未必等于父容器，所以下面的函数对于表格和iframe中的元素不适用。
+    //网页元素的绝对位置，指该元素的左上角相对于整张网页左上角的坐标。
+    function getElementLeft(element){
+        var actualLeft = element.offsetLeft;
+        var current = element.offsetParent;
+        console.log(actualLeft);
+        console.log(current);
+        while(current != null){
+            actualLeft +=current.offsetLeft;
+            current = current.offsetParent;
+        }
+        return actualLeft;
+    }
+    getElementLeft(document.getElementsByClassName('p1')[0])
+    //网页元素的相对位置，指该元素左上角相对于浏览器窗口左上角的坐标。
+    //有了绝对位置以后，获得相对位置就很容易了，只要将绝对坐标减去页面的滚动条滚动的距离就可以了。滚动条滚动的垂直距离，是document对象的scrollTop属性；滚动条滚动的水平距离是document对象的scrollLeft属性。
+    function getElementViewLeft(element){
+　　　　var actualLeft = element.offsetLeft;
+　　　　var current = element.offsetParent;
+　　　　while (current !== null){
+　　　　　　actualLeft += current.offsetLeft;
+　　　　　　current = current.offsetParent;
+　　　　}
+　　　　if (document.compatMode == "BackCompat"){
+　　　　　　var elementScrollLeft=document.body.scrollLeft;
+　　　　} else {
+　　　　　　var elementScrollLeft=document.documentElement.scrollLeft; 
+　　　　}
+　　　　return actualLeft-elementScrollLeft;
+　　}
+    //快速排序
+    var quickSort = function(arr) {
+    　　if (arr.length <= 1) { return arr; }
+    　　var pivotIndex = Math.floor(arr.length / 2);
+    　　var pivot = arr.splice(pivotIndex, 1)[0];
+    　　var left = [];
+    　　var right = [];
+    　　for (var i = 0; i < arr.length; i++){
+    　　　　if (arr[i] < pivot) {
+    　　　　　　left.push(arr[i]);
+    　　　　} else {
+    　　　　　　right.push(arr[i]);
+    　　　　}
+    　　}
+    　　return quickSort(left).concat([pivot], quickSort(right));
+    };
+    //判断javascript对象是否存在
+　  if (!myObj) {//. 如果除了对象是否存在，还要判断对象是否有null值，推荐使用。
+　　　　var myObj = { };//var 必不可少
+    }
+　　if (typeof myObj == "undefined") {//这是目前使用最广泛的判断javascript对象是否存在的方法。
+　　　　var myObj = { };
+　　 }
+    
+    var objectK = {name:'wang',lastName:'chuan'}
+    console.log($.makeArray(objectK))
+</script>
+</html>

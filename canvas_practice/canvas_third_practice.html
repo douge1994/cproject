@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./canvas_third_ practice.css">
+<body>
+    <div>
+        <canvas width="430" height="200" id="canvas"></canvas>
+        <button id="bot">132</button>
+        <button id="undo">undo</button>
+    </div>
+    <div>
+        <canvas  width="430" height="200" id="canvasSec"></canvas>
+        <button id="clearA">clear</button>
+        <button id="reDraw">reDraw</button>
+        <button id="" onclick="undo()">undo</button>
+        <button id="" onclick="redo()">redo</button>
+    </div>
+</body>
+<script src="../shouce/jquery-1.11.1.js"></script>
+<script>
+
+    var can = document.getElementById('canvas');
+    var ctx = can.getContext('2d');
+    var isMouseLeftDown=false;
+    /*// frist step
+    $('#canvas').on('mousedown',function(event){
+        console.log(event)
+        var w=event.clientX;
+        var h=event.clientY;
+        ctx.beginPath();
+        ctx.moveTo(w,h);
+        isMouseLeftDown=true;
+    })
+    console.log(isMouseLeftDown)
+    // sec step
+    $('#canvas').on('mousemove',function(event){
+        if(isMouseLeftDown == false){
+            return false;
+        }
+        var w1=event.clientX;
+        var h1=event.clientY;
+        ctx.lineTo(w1,h1);
+        ctx.stroke()
+        ctx.lineWidth=5;
+        ctx.strokeStyle='red';
+        console.log(isMouseLeftDown);
+    })
+    // end step
+    var list=[];
+    $('#canvas').on('mouseup',function(){
+        console.log(ctx)
+        ctx.save();
+        list.push(ctx)
+        if(isMouseLeftDown == true){isMouseLeftDown=false; }
+    })
+    $('#bot').on('click',function(){
+        console.log(list)
+        if(list.length>0){
+           // list.splice(0,1);
+            ctx.restore()
+           // ctx.clearRect(0,0,500,500);
+        }
+        console.log(list)
+    })*/
+    var rectangle='';
+    var list=[];
+    // frist step
+    var w='';
+    var h='';
+    var w1='';
+    var h1='';
+    var x=[];
+    var y=[];
+    var mouseStatus=[];
+    $('#canvas').on('mousedown',function(event){
+        console.log(event)
+        w=event.clientX;
+        h=event.clientY;
+        ctx.fillStyle='red';
+        ctx.lineWidth=5;
+        ctx.strokeStyle='red';
+        rectangle = new Path2D();
+        rectangle.moveTo(w,h);
+        isMouseLeftDown=true;
+        x.push(w);
+        y.push(h);
+        mouseStatus.push(false)
+      
+    })
+    // sec step
+    $('#canvas').on('mousemove',function(event){
+        if(isMouseLeftDown == false){
+            return false;
+        }
+        mouseStatus.push(true);
+        w1=event.clientX;
+        h1=event.clientY;
+        rectangle.lineTo(w1,h1);
+        x.push(w1)
+        y.push(h1)
+        ctx.stroke(rectangle);
+    })
+    // end step
+    var list1=[];
+    $('#canvas').on('mouseup',function(){
+        rectangle='';
+        if(isMouseLeftDown == true){ isMouseLeftDown=false; }
+       // ctx.clearRect(0,0,420,300);
+    })
+    $('#bot').on('click',function(){
+            ctx.fillStyle='red';
+            ctx.lineWidth=5;
+            ctx.strokeStyle='red';
+        for(var i=0;i<x.length;i++){
+            rectangle = new Path2D();
+            if(mouseStatus[i] && i){//当是拖动而且i!=0时，从上一个点开始画线。
+                rectangle.moveTo(x[i-1], y[i-1]);
+            }else{
+                rectangle.moveTo(x[i]-1, y[i]);
+            }
+            rectangle.lineTo(x[i],y[i]);
+            ctx.stroke(rectangle);
+        }
+    });
+
+    $('#undo').on('click',function(){
+        ctx.clearRect(0,0,420,300);
+    })
+
+
+
+
+
+
+
+
+
+
+// 以画的形式保存或者输出
+var isClick=false;
+var lastX = '';
+var lastY='';
+var ctx1;
+ctx1 = document.getElementById('canvasSec').getContext("2d");
+$('#canvasSec').on('mousedown',function(e){
+    isClick=true;
+  
+    draw(e.pageX-$(this).offset().left,e.pageY - $(this).offset().top,false)
+})
+$('#canvasSec').on('mouseup',function(e){
+    isClick=false;
+    cPush();
+})
+$('#canvasSec').on('mousemove',function(e){
+    if(isClick == false){return false;}
+    draw(e.pageX-$(this).offset().left,e.pageY - $(this).offset().top,true)
+})
+function draw(x,y,isPress){
+        if(isPress){
+            ctx1.beginPath();
+            ctx1.strokeStyle = 'red'
+            ctx1.lineWidth = 5;
+            ctx1.lineJoin = "round";
+            ctx1.moveTo(lastX, lastY);
+            ctx1.lineTo(x,y);
+            ctx1.closePath();
+            ctx1.stroke();
+        }
+       lastX=x;
+       lastY=y;
+}
+var cPushArray = new Array();
+var cStep = -1;
+function cPush() {
+    cStep++;
+    console.log(cStep)
+    if (cStep < cPushArray.length) { cPushArray.length = cStep; }
+    cPushArray.push(document.getElementById('canvasSec').toDataURL());
+}
+$('#clearA').on('click',function(){
+    drawImage()
+})
+$('#reDraw').on('click',function(){
+    console.log(cStep)
+    for(var i =0;i<cPushArray.length;i++){
+        var canvasPic = new Image();
+        canvasPic.src = cPushArray[i];
+        canvasPic.onload = function () { ctx1.drawImage(canvasPic, 0, 0); };  //去掉onload发现会调用2次才能实施
+    }
+    
+})
+
+function undo() {
+    if (cStep > 0) {
+        cStep--;
+        var canvasPic = new Image();
+        console.log(cStep);
+        canvasPic.src = cPushArray[cStep];
+       // ctx1.clearRect(0,0,420,300);
+        canvasPic.onload = function () { ctx1.drawImage(canvasPic, 0, 0); }
+        /*document.title = cStep + ":" + cPushArray.length;*/
+    }
+}
+function redo() {
+    if (cStep < cPushArray.length-1) {
+        cStep++;
+        var canvasPic = new Image();
+        canvasPic.src = cPushArray[cStep];
+        //ctx1.clearRect(0,0,420,300);
+        canvasPic.onload = function () { ctx1.drawImage(canvasPic, 0, 0); }
+        /*document.title = cStep + ":" + cPushArray.length;*/
+    }
+}
+drawImage()
+function drawImage() {
+    var image = new Image();
+    image.src = '../canvas_image/leaf.jpg';
+    $(image).load(function () {
+        ctx1.drawImage(image, 0, 0, 420, 300);
+        cPush();
+    });    
+}
+
+// var mousePressed = false;
+// var lastX, lastY;
+// var ctx;
+
+// function InitThis() {
+//     ctx = document.getElementById('myCanvas').getContext("2d");
+//     $('#myCanvas').mousedown(function (e) {
+//         mousePressed = true;
+//         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+//     });
+
+//     $('#myCanvas').mousemove(function (e) {
+//         if (mousePressed) {
+//             Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+//         }
+//     });
+
+//     $('#myCanvas').mouseup(function (e) {
+//         if (mousePressed) {
+//             mousePressed = false;
+//             cPush();
+//         }
+//     });
+
+//     $('#myCanvas').mouseleave(function (e) {
+//         if (mousePressed) {
+//             mousePressed = false;
+//             cPush();
+//         }
+//     });
+//     drawImage();
+// }
+
+// function drawImage() {
+//     var image = new Image();
+//     image.src = 'img/bg.jpg';
+//     $(image).load(function () {
+//         ctx.drawImage(image, 0, 0, 500, 200);
+//         cPush();
+//     });    
+// }
+
+// function Draw(x, y, isDown) {
+//     if (isDown) {
+//         ctx.beginPath();
+//         ctx.strokeStyle = $('#selColor').val();
+//         ctx.lineWidth = $('#selWidth').val();
+//         ctx.lineJoin = "round";
+//         ctx.moveTo(lastX, lastY);
+//         ctx.lineTo(x, y);
+//         ctx.closePath();
+//         ctx.stroke();
+//     }
+//     lastX = x;
+//     lastY = y;
+// }
+
+// var cPushArray = new Array();
+// var cStep = -1;
+
+// function cPush() {
+//     cStep++;
+//     if (cStep < cPushArray.length) { cPushArray.length = cStep; }
+//     cPushArray.push(document.getElementById('myCanvas').toDataURL());
+//     /*document.title = cStep + ":" + cPushArray.length;*/
+// }
+// function cUndo() {
+//     if (cStep > 0) {
+//         cStep--;
+//         var canvasPic = new Image();
+//         canvasPic.src = cPushArray[cStep];
+//         canvasPic.onload = function () { ctx.drawImage(canvasPic, 0, 0); }
+//         /*document.title = cStep + ":" + cPushArray.length;*/
+//     }
+// }
+// function cRedo() {
+//     if (cStep < cPushArray.length-1) {
+//         cStep++;
+//         var canvasPic = new Image();
+//         canvasPic.src = cPushArray[cStep];
+//         canvasPic.onload = function () { ctx.drawImage(canvasPic, 0, 0); }
+//         /*document.title = cStep + ":" + cPushArray.length;*/
+//     }
+// }
+</script>
+</html>

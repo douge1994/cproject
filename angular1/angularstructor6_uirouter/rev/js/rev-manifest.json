@@ -1,0 +1,13 @@
+{
+  "app1.js": "app1.js?v=f3d6792490",
+  "configAnddebug/config-debug.js": "configAnddebug/config-debug.js?v=12dccfa725",
+  "configAnddebug/config-url.js": "configAnddebug/config-url.js?v=81e7c8633b",
+  "html/home/home.js": "html/home/home.js?v=946bf050ca",
+  "html/test/test.js": "html/test/test.js?v=df150ff81d",
+  "indexController.js": "indexController.js?v=d41d8cd98f",
+  "main.js": "main.js?v=bf1b3dbe98",
+  "old/index.js": "old/index.js?v=4473de4278",
+  "old/router-config.js": "old/router-config.js?v=f2eb09ebe0",
+  "router.js": "router.js?v=c9d477ef5d",
+  "services/index-service.js": "services/index-service.js?v=d41d8cd98f"
+}
