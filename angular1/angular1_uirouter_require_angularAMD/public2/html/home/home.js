@@ -6,17 +6,18 @@
     */
 define([
     'app1',
-    '../../services/home-service',
-    '../testAMD/test0',
-    '../testAMD/test1'
-],function(app,homeService,test,test1){  //依赖app.js  function 参数即是《对应依赖的返回值》
-    test.method1();
-    test1.method2();
+    '../../services/home-service'
+],function(app){  //依赖app.js  function 参数即是《对应依赖的返回值》
     app.controller('homeCtrl', [ '$scope','homeService', function($scope,homeService){
         console.log('this is HOme page')
         $scope.name = 'welcome to homePage';
+        console.log('home-ctrl')
+        console.log(homeService)
         homeService.searchAllMenu().then(function(res){
-          
+            console.log('home -----  ')
+            console.log(res)
         });
+
+
     }])  
 }) ;

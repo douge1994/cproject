@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="">one</a></li>
+            <li><a href="">two</a></li>
+            <li><a href="" class="three">three</a> <span>131231</span></li>
+            <li><a href="">four</a></li>
+        </ul>
+        <p></p>
+        <div>good job</div>
+    </div>
+</body>
+<script src="../../手册/jquery-1.11.1.js"></script>
+<script src="./index.js"></script>
+<script>
+    $("a:contains(one)").css("color",'red')
+    $('p:empty').html('123123')
+    // $('a:has(three)').css('color','white')
+    
+</script>
+</html>

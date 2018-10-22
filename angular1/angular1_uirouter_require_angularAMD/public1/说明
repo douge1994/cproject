@@ -1,0 +1,5 @@
+app1 作为启动项 全局可用；
+main 设置资源路径/垫片/css动态加载
+old  下所有文件全是旧文件...可作为参考
+本架构使用了最基础的 gulp；
+使用了requirejs/angularAMD/ui-router/css懒加载/

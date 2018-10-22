@@ -1,0 +1,19 @@
+body,ul,li{ padding:0; margin:0;}
+ul,li{ list-style:none;}
+.container{ height:210px; width:460px; border:5px solid #000; margin: 0 auto}
+ul{ height:210px; overflow:hidden; margin-right:-20px;}/*一个负的margin-right,相当于把ul的宽度增加了20px*/
+li{ height:100px; width:100px; background:#09F; float:left; margin-right:20px; margin-bottom:10px;}
+
+
+.test-margin {
+    background: red
+}
+
+
+.test-margin-parent {
+    border: 1px solid red;
+}
+.test-margin-parent p:first-child {
+    margin-top: 30px;
+    border: 1px solid lightseagreen;
+}

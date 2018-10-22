@@ -138,7 +138,6 @@
 //七-》元素到浏览器边缘的距离：
 
 //在这里加个元素到浏览器边缘的距离，很实用
-// offset 不包含边框 client 包含边框与内容
   function offsetTL(obj){//获取元素内容距离浏览器边框的距离（含边框）
     var ofL=0,ofT=0;
     while(obj){
@@ -159,7 +158,7 @@
       e.cancelBubble=true;//IE....
     }
   }
-// 阻止默认事件：
+//九-》阻止默认事件：
 
 //js阻止默认事件
   document.onclick=function(e){
@@ -170,7 +169,7 @@
       e.returnValue='false';//IE..
     }
   }
-// 关于EVENT事件中的target：
+//十-》关于EVENT事件中的target：
 
 //关于event事件中的target
   document.onmouseover=function(e){
@@ -179,7 +178,7 @@
     var from=e.relatedTarget||e.formElement;//鼠标来的地方，同样后面的为IE...
     var to=e.relatedTarget||e.toElement;//鼠标去的地方
   }
-// 鼠标滚轮滚动事件：
+//十一-》鼠标滚轮滚动事件：
 
 //鼠标滚轮事件
   //火狐中的滚轮事件
@@ -190,22 +189,10 @@
   document.onmousewheel=function(event){
     alert(event.detail);//前滚：120，后滚：-120
   }
-// 节点加载：
+//十二-》节点加载：
 
 //火狐下特有的节点加载事件，就是节点加载完才执行，和onload不同
 //感觉用到的不多，直接把js代码放在页面结构后面一样能实现。。
 document.addEventListener('DOMContentLoaded',function ( ){},false);//DOM加载完成。好像除IE6-8都可以.
-
-//添加css样式规则
-function addCSSRule(sheet, selector, rules, index) {  
-    if("insertRule" in sheet) {  
-        sheet.insertRule(selector + "{" + rules + "}", index);  
-    }  
-    else if("addRule" in sheet) {  
-        sheet.addRule(selector, rules, index);  
-    }  
-} 
-// 使用方式  
-addCSSRule(document.styleSheets[0], "header", "float: left");
 </script>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        function getQueryStringArgs(){
+            //取得查询字符串并去掉开头问号
+            var qs = (location.search.length>0 ? location.search.substring(1) : ''),
+            //保存数据的对象
+            args= {},
+
+            //取得每一项
+            items=qs.length? qs.split('&') :  [],
+            item = null,
+            name=null,
+            value=null,
+            //在for循环中使用
+            i=0,
+            len = items.length;
+            //这个将每一项添加到args对象中
+            for(i=0;i<len;i++){
+                item = items[i].split("=");
+                name = decodeURIComponent(item[0])
+                value = decodeURIComponent(item[1])
+                if(name.length) {
+                    args[name] = value;
+                }
+            }
+            return args;
+        }
+        var args = getQueryStringArgs();
+        console.log(args)
+
+
+        function getUrlParam(){
+            var url = 'http://www.nowcoder.com?key=1&key2=2&key3=3&test=4#hehe';
+            var a = url.indexOf('#')!= -1 ? url.slice(url.indexOf('?')+1,url.indexOf('#')):url.slice(url.indexOf('?')+1)
+            var b = a.split('&');
+            console.log(b);
+            var c = {};
+            var x ;
+            for(var i =0;i< b.length;i++){
+            x = b[i].split("=");
+                console.log(x);
+                if(!(x[0] in c)){
+                    c[x[0]] = x[1];
+                }
+            }
+            console.log(c);
+        }
+    getUrlParam()
+    </script>
+</body>
+</html>
